@@ -1,0 +1,18 @@
+{
+  "parts": [
+    {
+      "name": "part:@sanity/dashboard/widget/shopify-connect",
+      "implements": "part:@sanity/dashboard/widget",
+      "path": "shopify-connect/index.js"
+    },
+    {
+      "name": "part:@sanity/dashboard/widget/shopify-intro",
+      "implements": "part:@sanity/dashboard/widget",
+      "path": "shopify-intro/index.js"
+    }
+  ],
+  "paths": {
+    "source": "./src",
+    "compiled": "./lib"
+  }
+}

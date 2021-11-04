@@ -1,0 +1,5 @@
+declare module '@sanity/dashboard'
+declare module '*.css'
+declare module 'config:*'
+declare module 'javascript-time-ago*'
+declare module 'part:@sanity/*'

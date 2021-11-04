@@ -1,0 +1,1 @@
+export const SANITY_API_VERSION = '2021-06-07'
