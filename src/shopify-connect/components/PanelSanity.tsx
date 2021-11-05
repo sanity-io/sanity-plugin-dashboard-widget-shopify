@@ -16,6 +16,7 @@ const PanelSanity = () => {
         <Row title="project ID" value={clientConfig.projectId} />
         <Row title="dataset" value={clientConfig.dataset} />
       </Stack>
+      {/* Actions */}
       <Box marginTop={5}>
         <Text size={1} weight="medium">
           <a

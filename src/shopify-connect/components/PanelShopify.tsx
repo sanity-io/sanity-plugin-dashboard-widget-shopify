@@ -1,4 +1,4 @@
-import { WarningOutlineIcon } from '@sanity/icons'
+import { LaunchIcon, WarningOutlineIcon } from '@sanity/icons'
 import { Box, Button, Card, Flex, Label, Stack, Text } from '@sanity/ui'
 import React from 'react'
 import { SyncStatusDocument } from '../types'
@@ -31,8 +31,8 @@ const PanelShopify = (props: Props) => {
                     No sync document found
                   </Text>
                   <Text size={1}>
-                    Download the official Sanity Connect app from the Shopify
-                    App store to get started.
+                    Install the official Sanity Connect app from the Shopify App
+                    store to get started.
                   </Text>
                   <Box>
                     <Button
@@ -60,17 +60,21 @@ const PanelShopify = (props: Props) => {
 
       {/* Actions */}
       {syncStatus !== null && (
-        <Box marginTop={4}>
-          <Button
-            as="a"
-            disabled={!syncStatus?.store}
-            fontSize={1}
-            href={`https://${syncStatus?.store}/admin`}
-            rel="noopener noreferrer"
-            target="_blank"
-            text="Shopify store admin"
-            tone="primary"
-          />
+        <Box marginTop={5}>
+          <Text size={1} weight="medium">
+            <a
+              href={syncStatus?.store && `https://${syncStatus?.store}/admin`}
+              rel="noopener noreferrer"
+              style={{
+                opacity: syncStatus?.store ? 1 : 0.5,
+                pointerEvents: syncStatus?.store ? 'auto' : 'none',
+              }}
+              target="_blank"
+            >
+              <LaunchIcon style={{ marginRight: '0.1em' }} />
+              Shopify store admin
+            </a>
+          </Text>
         </Box>
       )}
     </Box>

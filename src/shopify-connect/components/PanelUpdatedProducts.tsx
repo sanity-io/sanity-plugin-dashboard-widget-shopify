@@ -12,8 +12,6 @@ type Props = {
 const PanelUpdatedProducts = (props: Props) => {
   const { store, updates } = props
 
-  console.log('updates', updates)
-
   return (
     <Box>
       <Stack space={3}>
