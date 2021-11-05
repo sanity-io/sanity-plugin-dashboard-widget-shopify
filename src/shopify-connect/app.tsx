@@ -30,6 +30,10 @@ function Widget() {
     const subscription = sanityClient
       .listen(QUERY)
       .subscribe((mutation: MutationEvent) => {
+        if (mutation.transition === 'disappear') {
+          handleSyncUpdate(null)
+        }
+
         if (mutation?.result) {
           handleSyncUpdate(mutation.result as SyncStatusDocument)
         }
