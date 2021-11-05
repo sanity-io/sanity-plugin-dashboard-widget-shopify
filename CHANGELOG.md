@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.1...v0.1.2) (2021-11-05)
+
+
+### Bug Fixes
+
+* **sanity-studio:** correctly display incoming manual sync ops, update copy, remove time offsets ([fca5126](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/commit/fca5126b2a2f0d200424a136987616a18c810295))
+
 ### 0.1.1 (2021-11-05)
 
 
