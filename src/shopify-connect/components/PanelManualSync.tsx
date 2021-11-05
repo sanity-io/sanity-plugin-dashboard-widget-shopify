@@ -11,6 +11,8 @@ type Props = {
   status?: ManualSyncStatus
 }
 
+const TIME_OFFSET = 2500 // ms
+
 const StatusTooltip = (props: { status?: ManualSyncStatus }) => {
   const { status } = props
 
@@ -79,6 +81,7 @@ const StatusTooltip = (props: { status?: ManualSyncStatus }) => {
 const PanelManualSync = (props: Props) => {
   const { status } = props
 
+  const isNeverRun = !status || Object.keys(status).length === 0
   const isCreated = status?.status === 'created'
   const isFailed = status?.status === 'failed'
   const isSuccess = status?.status === 'success'
@@ -96,7 +99,7 @@ const PanelManualSync = (props: Props) => {
             <>
               started{' '}
               <ReactTimeAgo
-                date={new Date(status.startedAt).getTime()}
+                date={new Date(status.startedAt).getTime() - TIME_OFFSET}
                 timeStyle="round"
               />
             </>
@@ -106,7 +109,7 @@ const PanelManualSync = (props: Props) => {
             <>
               completed{' '}
               <ReactTimeAgo
-                date={new Date(status.completedAt).getTime()}
+                date={new Date(status.completedAt).getTime() - TIME_OFFSET}
                 timeStyle="round"
               />
               <StatusTooltip status={status} />
@@ -117,14 +120,14 @@ const PanelManualSync = (props: Props) => {
             <>
               failed{' '}
               <ReactTimeAgo
-                date={new Date(status.completedAt).getTime()}
+                date={new Date(status.completedAt).getTime() - TIME_OFFSET}
                 timeStyle="round"
               />
               <StatusTooltip status={status} />
             </>
           )}
           {/* Never run */}
-          {!status && <>never</>}
+          {isNeverRun && <>never</>}
         </Text>
       </Inline>
     </Box>

@@ -17,6 +17,8 @@ type Props = {
   type: ProductUpdateType
 }
 
+const TIME_OFFSET = 2500 // ms
+
 const ImageContainer = styled(Box)`
   background: ${hues.gray[100].hex};
   height: 2.5em;
@@ -126,7 +128,7 @@ const SyncItem = (props: Props) => {
               <Text muted size={1} textOverflow="ellipsis">
                 {isReady && timestamp && (
                   <ReactTimeAgo
-                    date={new Date(timestamp).getTime()}
+                    date={new Date(timestamp).getTime() - TIME_OFFSET}
                     timeStyle="round"
                   />
                 )}
