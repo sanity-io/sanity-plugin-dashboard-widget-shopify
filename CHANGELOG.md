@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.2...v0.1.3) (2021-11-05)
+
+
+### Bug Fixes
+
+* revert removal of time offset, correctly account for status being an empty object ([8a8e309](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/commit/8a8e3095e08d1ef6115b4264b0ba77dc1afd62b9))
+
 ### [0.1.2](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.1...v0.1.2) (2021-11-05)
 
 
