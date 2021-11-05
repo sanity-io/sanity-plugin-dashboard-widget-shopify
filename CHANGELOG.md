@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.3...v0.1.4) (2021-11-05)
+
+
+### Bug Fixes
+
+* correctly unset sync document on removal (mutation.transition === 'disappear') ([46ae663](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/commit/46ae66304ba073b9aaf738022db0746b7443bba0))
+
 ### [0.1.3](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.2...v0.1.3) (2021-11-05)
 
 
