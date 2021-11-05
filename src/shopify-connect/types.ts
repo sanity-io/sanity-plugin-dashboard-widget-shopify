@@ -8,17 +8,19 @@ export type ManualSyncStatus = {
   }
   error?: string
   startedAt: string
-  status: string
+  status: 'created' | 'failed' | 'success'
+}
+
+export type ProductUpdate = {
+  documentId?: string
+  error?: string
+  productId: number
+  timestamp: string
+  type: string
 }
 
 export type SyncStatusDocument = SanityDocument & {
-  log: {
-    documentId?: string
-    error?: string
-    productId: number
-    timestamp: string
-    type: string
-  }[]
-  status?: 'created' | 'failed' | 'success'
+  log: ProductUpdate[]
+  status?: ManualSyncStatus
   store: string
 }

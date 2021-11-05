@@ -4,7 +4,7 @@ import { Box, Card, ElementQuery, Flex, Stack, Text } from '@sanity/ui'
 import userStore from 'part:@sanity/base/user'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Resource from './Resource'
+import Resource from './components/Resource'
 
 const Container = styled(Flex)`
   flex-direction: column;

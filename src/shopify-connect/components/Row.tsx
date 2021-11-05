@@ -3,7 +3,7 @@ import React from 'react'
 
 type Props = {
   title: string
-  value: string
+  value?: string
 }
 
 const Row = (props: Props) => {

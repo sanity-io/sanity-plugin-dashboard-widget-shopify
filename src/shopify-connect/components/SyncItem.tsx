@@ -7,7 +7,7 @@ import { IntentLink } from 'part:@sanity/base/router'
 import React, { useEffect, useRef, useState } from 'react'
 import ReactTimeAgo from 'react-time-ago'
 import styled from 'styled-components'
-import { sanityClient } from '../lib/client'
+import { sanityClient } from '../../lib/client'
 
 type Props = {
   documentId?: string
@@ -163,7 +163,8 @@ const SyncItem = (props: Props) => {
           )}
           <TextPlaceholder flex={1} visible={!isLoading}>
             <Label align="right" muted size={0}>
-              {!isLoading ? type : <>&nbsp;</>}
+              {!isLoading && type}
+              &nbsp;
             </Label>
           </TextPlaceholder>
         </Flex>
