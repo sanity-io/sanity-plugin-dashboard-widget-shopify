@@ -16,8 +16,10 @@ export type ProductUpdate = {
   error?: string
   productId: number
   timestamp: string
-  type: string
+  type: ProductUpdateType
 }
+
+export type ProductUpdateType = 'create' | 'delete' | 'update'
 
 export type SyncStatusDocument = SanityDocument & {
   log: ProductUpdate[]

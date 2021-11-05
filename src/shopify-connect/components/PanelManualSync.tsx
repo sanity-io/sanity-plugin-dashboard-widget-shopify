@@ -1,16 +1,15 @@
-import { Box, Inline, Text, Tooltip } from '@sanity/ui'
+import { Box, Inline, Stack, Text, Tooltip } from '@sanity/ui'
 import { InfoOutlineIcon } from '@sanity/icons'
 import pluralize from 'pluralize'
 import intervalToDuration from 'date-fns/intervalToDuration'
 import React from 'react'
 import ReactTimeAgo from 'react-time-ago'
 import type { ManualSyncStatus } from '../types'
+import { hues } from '@sanity/color'
 
 type Props = {
   status?: ManualSyncStatus
 }
-
-const TIME_OFFSET = 2500 // ms
 
 const StatusTooltip = (props: { status?: ManualSyncStatus }) => {
   const { status } = props
@@ -25,12 +24,15 @@ const StatusTooltip = (props: { status?: ManualSyncStatus }) => {
     end: new Date(status?.completedAt),
   })
 
-  let formattedDuration = [
-    `${duration.minutes}m`, //
-    `${duration.seconds}s`,
-  ]
+  let formattedDuration = []
+  if (duration.seconds) {
+    formattedDuration.unshift(`${duration.seconds}s`)
+  }
+  if (duration.minutes) {
+    formattedDuration.unshift(`${duration.minutes}m`)
+  }
   if (duration.hours) {
-    formattedDuration = [`${duration.hours}h`, ...formattedDuration]
+    formattedDuration.unshift(`${duration.hours}s`)
   }
 
   const productsPlural = pluralize(
@@ -48,24 +50,28 @@ const StatusTooltip = (props: { status?: ManualSyncStatus }) => {
     <Tooltip
       content={
         <Box padding={2}>
-          {status?.error ? (
-            <Text size={1}>
-              {status?.error && <>Failed with error: {status.error}</>}
-            </Text>
-          ) : (
+          <Stack space={2}>
+            {status?.error ? (
+              <Text size={1} weight="medium">
+                {status?.error && <>Failed with error: {status.error}</>}
+              </Text>
+            ) : (
+              <Text size={1} weight="medium">
+                Updated {productsPlural} and {variantsPlural} in{' '}
+                {formattedDuration.join(' ')}
+              </Text>
+            )}
             <Text muted size={1}>
-              Updated {productsPlural} and {variantsPlural} in{' '}
-              {formattedDuration.join(' ')}
+              Manually synced products will not appear in the updated products
+              list.
             </Text>
-          )}
+          </Stack>
         </Box>
       }
       placement="top"
       portal
     >
-      <Text muted size={1}>
-        <InfoOutlineIcon />
-      </Text>
+      <InfoOutlineIcon style={{ marginLeft: '0.1em' }} />
     </Tooltip>
   )
 }
@@ -73,21 +79,53 @@ const StatusTooltip = (props: { status?: ManualSyncStatus }) => {
 const PanelManualSync = (props: Props) => {
   const { status } = props
 
+  const isCreated = status?.status === 'created'
+  const isFailed = status?.status === 'failed'
+  const isSuccess = status?.status === 'success'
+
   return (
     <Box>
       <Inline space={2}>
-        <Text muted size={1}>
-          Last manual sync:{' '}
-          {status?.completedAt ? (
-            <ReactTimeAgo
-              date={new Date(status.completedAt).getTime() - TIME_OFFSET}
-              timeStyle="round"
-            />
-          ) : (
-            'never'
+        <Text
+          muted
+          size={1}
+          style={{ color: isFailed ? hues.red[500].hex : hues.gray[600].hex }}
+        >
+          Last manual sync: {/* Created */}
+          {isCreated && status?.startedAt && (
+            <>
+              started{' '}
+              <ReactTimeAgo
+                date={new Date(status.startedAt).getTime()}
+                timeStyle="round"
+              />
+            </>
           )}
+          {/* Success */}
+          {isSuccess && status?.completedAt && (
+            <>
+              completed{' '}
+              <ReactTimeAgo
+                date={new Date(status.completedAt).getTime()}
+                timeStyle="round"
+              />
+              <StatusTooltip status={status} />
+            </>
+          )}
+          {/* Failed */}
+          {isFailed && status?.completedAt && (
+            <>
+              failed{' '}
+              <ReactTimeAgo
+                date={new Date(status.completedAt).getTime()}
+                timeStyle="round"
+              />
+              <StatusTooltip status={status} />
+            </>
+          )}
+          {/* Never run */}
+          {!status && <>never</>}
         </Text>
-        <StatusTooltip status={status} />
       </Inline>
     </Box>
   )

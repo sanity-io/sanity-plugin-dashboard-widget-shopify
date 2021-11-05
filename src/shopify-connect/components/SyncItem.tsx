@@ -8,12 +8,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import ReactTimeAgo from 'react-time-ago'
 import styled from 'styled-components'
 import { sanityClient } from '../../lib/client'
+import { ProductUpdateType } from '../types'
 
 type Props = {
   documentId?: string
   error?: string
   timestamp: string
-  type: string
+  type: ProductUpdateType
 }
 
 const ImageContainer = styled(Box)`
@@ -40,7 +41,11 @@ const QUERY = `*[_id == $id][0]`
 
 const PLACEHOLDER_DELAY = 1500 // ms
 
-const TIME_OFFSET = 2500 // ms
+const TYPE_MAP: Record<ProductUpdateType, string> = {
+  create: 'Created',
+  delete: 'Deleted',
+  update: 'Updated',
+}
 
 const SyncItem = (props: Props) => {
   const { timestamp, documentId, error, type } = props
@@ -98,7 +103,6 @@ const SyncItem = (props: Props) => {
   const isLoading = mode === 'loading'
   const isReady = mode === 'ready'
 
-  // TODO: revise placeholders and remove whitespace (&nbsp;) usage
   const Content = () => (
     <Card paddingY={2}>
       <Flex align="center">
@@ -122,7 +126,7 @@ const SyncItem = (props: Props) => {
               <Text muted size={1} textOverflow="ellipsis">
                 {isReady && timestamp && (
                   <ReactTimeAgo
-                    date={new Date(timestamp).getTime() - TIME_OFFSET}
+                    date={new Date(timestamp).getTime()}
                     timeStyle="round"
                   />
                 )}
@@ -163,7 +167,7 @@ const SyncItem = (props: Props) => {
           )}
           <TextPlaceholder flex={1} visible={!isLoading}>
             <Label align="right" muted size={0}>
-              {!isLoading && type}
+              {!isLoading && TYPE_MAP[type]}
               &nbsp;
             </Label>
           </TextPlaceholder>

@@ -1,8 +1,11 @@
 import { LaunchIcon, WarningOutlineIcon } from '@sanity/icons'
 import { Box, Button, Card, Flex, Label, Stack, Text } from '@sanity/ui'
 import React from 'react'
+import { sanityClient } from '../../lib/client'
 import { SyncStatusDocument } from '../types'
 import Row from './Row'
+
+const clientConfig = sanityClient.config()
 
 type Props = {
   syncStatus?: SyncStatusDocument | null
@@ -28,11 +31,13 @@ const PanelShopify = (props: Props) => {
               <Box flex={1} marginLeft={3}>
                 <Stack space={4}>
                   <Text size={1} weight="semibold">
-                    No sync document found
+                    Widget configuration is missing
                   </Text>
                   <Text size={1}>
-                    Install the official Sanity Connect app from the Shopify App
-                    store to get started.
+                    Install the official Sanity Connect app in the Shopify app
+                    store and connect it to this project (
+                    <code>{clientConfig?.projectId}</code>) to enable this
+                    widget.
                   </Text>
                   <Box>
                     <Button

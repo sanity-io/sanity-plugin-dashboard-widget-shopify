@@ -16,7 +16,7 @@ const PanelUpdatedProducts = (props: Props) => {
     <Box>
       <Stack space={3}>
         <Label muted size={1}>
-          Recently synced products
+          Recently updated products
         </Label>
         <Box>
           {/* Sync items */}
