@@ -41,19 +41,33 @@ function Widget() {
                   style={{ width: '100%' }}
                 />
                 <Text>
-                  We’re excited for you to use Sanity and Shopify together to
-                  build vibrant shopping experiences.
+                  Thanks for installing Sanity Connect for Shopify. Welcome to
+                  your very own Sanity Studio!
                 </Text>
                 <Text>
-                  This dashboard is where you’ll get an overview of your
-                  products, your project details, and access to educational
-                  material that will help ensure you get maximum value out of
-                  Sanity.
+                  This is where you’ll see your products and variants that have
+                  been synced from Shopify. It’s also where you can add metadata
+                  to enrich your product information with fields for image
+                  galleries, block content for detailed product descriptions,
+                  SEO that lets you optimize your search engine results page
+                  (SERP) listings, and more.
                 </Text>
                 <Text>
-                  Please explore the resources available to you here, and we
-                  encourage you to join the Slack community and post any
-                  questions you may have.
+                  Need another content model to support your editorial needs?
+                  With Sanity, you can update and change your content model as
+                  needed to support even the most advanced requirements.
+                </Text>
+                <Text>
+                  Have a look around at the resources available to you here, and
+                  do join the #shopify channel in our{' '}
+                  <a
+                    href="https://slack.sanity.io/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Slack community
+                  </a>{' '}
+                  to get help with any questions you might have.
                 </Text>
               </Stack>
               {/* Links */}
@@ -61,7 +75,7 @@ function Widget() {
                 <Stack space={4}>
                   <Text size={1} weight="medium">
                     <a
-                      href="https://www.sanity.io/docs/getting-started"
+                      href="https://www.sanity.io/docs/sanity-connect-for-shopify"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -86,7 +100,7 @@ function Widget() {
                       rel="noreferrer"
                     >
                       <CommentIcon style={{ marginRight: '0.1em' }} />
-                      Support community
+                      Community support
                     </a>
                   </Text>
                 </Stack>
