@@ -1,6 +1,6 @@
 import type { MutationEvent, SanityDocument } from '@sanity/client'
 import { hues } from '@sanity/color'
-import { ErrorOutlineIcon } from '@sanity/icons'
+import { ErrorOutlineIcon, ImageIcon } from '@sanity/icons'
 import { Box, Card, Flex, Label, Stack, Text, Tooltip } from '@sanity/ui'
 // import { IntentLink } from '@sanity/state-router/components'
 import { IntentLink } from 'part:@sanity/base/router'
@@ -22,6 +22,7 @@ const TIME_OFFSET = 2500 // ms
 const ImageContainer = styled(Box)`
   background: ${hues.gray[100].hex};
   height: 2.5em;
+  position: relative;
   width: 2.5em;
 `
 
@@ -52,6 +53,7 @@ const TYPE_MAP: Record<ProductUpdateType, string> = {
 const SyncItem = (props: Props) => {
   const { timestamp, documentId, error, type } = props
 
+  const [imageVisible, setImageVisible] = useState(true)
   const [mode, setMode] = useState<'inaccessible' | 'loading' | 'ready'>(
     'loading'
   )
@@ -62,6 +64,9 @@ const SyncItem = (props: Props) => {
   const handleDocumentUpdate = (document?: SanityDocument | null) => {
     setProduct(document)
   }
+
+  // Hide image on error / 404
+  const handleImageError = () => setImageVisible(false)
 
   useEffect(() => {
     // Fetch product and listen to updates
@@ -110,9 +115,22 @@ const SyncItem = (props: Props) => {
       <Flex align="center">
         {/* Image */}
         <ImageContainer>
-          {isReady && product?.store?.previewImageUrl && (
-            <PreviewImage src={product.store.previewImageUrl} />
-          )}
+          {isReady &&
+            (product?.store?.previewImageUrl && imageVisible ? (
+              <PreviewImage
+                onError={handleImageError}
+                src={product.store.previewImageUrl}
+              />
+            ) : (
+              <ImageIcon
+                style={{
+                  color: hues.gray[700].hex,
+                  height: '100%',
+                  position: 'absolute',
+                  width: '100%',
+                }}
+              />
+            ))}
         </ImageContainer>
 
         <Box flex={1} marginX={3}>
