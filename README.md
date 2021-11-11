@@ -73,6 +73,8 @@ When you connect your Sanity project to your Shopify store with Sanity Connect, 
 
 The `sanity-connect` dashboard widget listens to this document for changes in real-time and updates accordingly. No sensitive information about your store or products are sent over the wire.
 
+This `sanity.sync.connect` document is also automatically removed for you when you disconnect the project from within Sanity Connect on Shopify.
+
 ```json
 {
   "_createdAt": "2021-11-05T20:41:45Z",
