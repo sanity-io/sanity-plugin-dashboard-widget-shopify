@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.5...v0.1.6) (2021-11-11)
+
+
+### Bug Fixes
+
+* don't display broken image links in sync items, fall back to icon if no valid image is found ([4dfc39f](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/commit/4dfc39f9fa1e6f0640226d8275f31b307f1bcfa8))
+
 ### [0.1.5](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.4...v0.1.5) (2021-11-08)
 
 ### [0.1.4](https://github.com/sanity-io/sanity-plugin-dashboard-widget-shopify/compare/v0.1.3...v0.1.4) (2021-11-05)
