@@ -73,10 +73,7 @@ function Widget() {
 
           {/* Recently updated products */}
           {syncStatus?.store && (
-            <PanelUpdatedProducts
-              store={syncStatus.store}
-              updates={updatedProducts}
-            />
+            <PanelUpdatedProducts updates={updatedProducts} />
           )}
 
           {/* Manual sync information */}
