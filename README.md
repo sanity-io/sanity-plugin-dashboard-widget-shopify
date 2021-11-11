@@ -69,11 +69,12 @@ Both widgets can be enabled or disabled independently. If you feel you've outgro
 
 ## How this works with Sanity Connect
 
-When you connect your Sanity project to your Shopify store with Sanity Connect, a special document with of type `sanity.shopify.sync` is automatically created. This document is updated whenever manual re-syncs are triggered from the Shopify App, as well as when products are individually updated (if you've enabled _automatic product syncing_).
+When you connect your Sanity project to your Shopify store with Sanity Connect, a special document of type `sanity.shopify.sync` is automatically created. This document is updated whenever manual re-syncs are triggered from the Shopify App, as well as when products are individually updated (if you've enabled _automatic product syncing_).
 
-The `sanity-connect` dashboard widget listens to this document for changes in real-time and updates accordingly. No sensitive information about your store or products are sent over the wire.
+The `sanity-connect` dashboard widget listens to this document for changes in real-time and updates accordingly. No sensitive information about your store or products are sent over the wire, and the `sanity.shopify.sync` document will be automatically removed from your dataset when you disconnect your project from Sanity Connect.
 
-This `sanity.shopify.sync` document is also automatically removed for you when you disconnect the project from within Sanity Connect on Shopify.
+<details><summary>An example <code>sanity.shopify.sync</code> document</summary>
+<p>
 
 ```json
 {
@@ -121,6 +122,9 @@ This `sanity.shopify.sync` document is also automatically removed for you when y
   "store": "sanity-dev-store.myshopify.com"
 }
 ```
+
+</p>
+</details>
 
 ## License
 
