@@ -4,7 +4,8 @@ import { Box, Card, ElementQuery, Flex, Stack, Text } from '@sanity/ui'
 import userStore from 'part:@sanity/base/user'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Resource from './components/Resource'
+import ResourceGuide from './components/ResourceGuide'
+import ResourceScreencast from './components/ResourceScreencast'
 
 const Container = styled(Flex)`
   flex-direction: column;
@@ -108,19 +109,14 @@ function Widget() {
             </Box>
             <Box flex={1} padding={[0, 0, 4]}>
               <Stack>
-                <Resource
-                  byline="Knut Melvær, head of developer relations"
-                  href="https://www.sanity.io"
-                  posterUrl="https://i.imgur.com/nZm7o1a.png"
-                  title="Getting started with Shopify and Sanity"
-                  type="screencast"
+                <ResourceScreencast
+                  title="Getting started with Sanity Connect for Shopify"
+                  youtubeId="TUY84_V5f9Q"
                 />
-                <Resource
-                  byline="Even Westvang, Co-founder"
-                  href="https://www.sanity.io"
-                  posterUrl="https://cdn.sanity.io/images/81pocpw8/production/c62d3f4f17ad1ef3d9be3d89648fde68f8d88d91-1200x900.png?rect=0,75,1200,750&w=600"
-                  title="Structure Sanity Studio to Your Heart’s Content!"
-                  type="guide"
+                <ResourceGuide
+                  href="https://www.sanity.io/guides/structured-content-patterns-for-e-commerce"
+                  posterUrl="https://cdn.sanity.io/images/3do82whm/next/ff7dcdd8ce4d5039334db85f7dbbbc8c35d534ee-1200x900.png?rect=0,75,1150,720&w=600"
+                  title="Best practices for e-commerce"
                 />
               </Stack>
             </Box>

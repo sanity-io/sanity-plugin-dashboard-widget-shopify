@@ -5,11 +5,10 @@ import { PlayIcon } from '@sanity/icons'
 import styled from 'styled-components'
 
 type Props = {
-  byline: string
+  byline?: string
   href: string
   posterUrl: string
   title: string
-  type: 'guide' | 'screencast'
 }
 
 const Container = styled(Card)`
@@ -50,32 +49,33 @@ const Poster = styled.img`
 `
 
 const Resource = (props: Props) => {
-  const { byline, href, posterUrl, title, type } = props
+  const { byline, href, posterUrl, title } = props
   return (
-    <Card as="a" href={href} rel="noopener noreferrer" padding={4} target="_blank">
+    <Card
+      as="a"
+      href={href}
+      rel="noopener noreferrer"
+      padding={4}
+      target="_blank"
+    >
       <Container overflow="hidden" radius={1}>
         {posterUrl && <Poster src={posterUrl} />}
-        {type === 'screencast' && (
-          <IconContainer>
-            <Text align="center" size={3}>
-              <PlayIcon />
-            </Text>
-          </IconContainer>
-        )}
       </Container>
       <Box marginTop={3}>
         <Text as="h3" size={2} weight="semibold">
           {title}
         </Text>
       </Box>
-      <Box marginTop={3}>
-        <Text muted size={1}>
-          {byline}
-        </Text>
-      </Box>
+      {byline && (
+        <Box marginTop={3}>
+          <Text muted size={1}>
+            {byline}
+          </Text>
+        </Box>
+      )}
       <Box marginTop={4}>
         <Label muted size={0}>
-          {type}
+          Guide
         </Label>
       </Box>
     </Card>
