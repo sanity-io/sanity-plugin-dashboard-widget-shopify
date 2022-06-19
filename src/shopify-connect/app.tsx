@@ -1,4 +1,3 @@
-// import { useRouter } from '@sanity/base/router'
 import type { MutationEvent } from '@sanity/client'
 import { hues } from '@sanity/color'
 import { DashboardWidget } from '@sanity/dashboard'
