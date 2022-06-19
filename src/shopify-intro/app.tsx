@@ -46,12 +46,10 @@ function Widget() {
                   your very own Sanity Studio!
                 </Text>
                 <Text>
-                  This is where you’ll see your products and variants that have
-                  been synced from Shopify. It’s also where you can add metadata
-                  to enrich your product information with fields for image
-                  galleries, block content for detailed product descriptions,
-                  SEO that lets you optimize your search engine results page
-                  (SERP) listings, and more.
+                  This is where you’ll see your products and collections that
+                  have been synced from Shopify. It’s also where you can add
+                  metadata to personalize your storefront with custom editorial,
+                  detailed product descriptions, SEO fields and more.
                 </Text>
                 <Text>
                   Need another content model to support your editorial needs?
@@ -59,8 +57,8 @@ function Widget() {
                   needed to support even the most advanced requirements.
                 </Text>
                 <Text>
-                  Have a look around at the resources available to you here, and
-                  do join the #shopify channel in our{' '}
+                  Have a look around at the resources available to you here or
+                  join the #shopify channel in our{' '}
                   <a
                     href="https://slack.sanity.io/"
                     rel="noopener noreferrer"
@@ -111,7 +109,7 @@ function Widget() {
               <Stack>
                 <ResourceScreencast
                   title="Getting started with Sanity Connect for Shopify"
-                  youtubeId="TUY84_V5f9Q"
+                  youtubeId="F1i_ciedmfY"
                 />
                 <ResourceGuide
                   href="https://www.sanity.io/guides/structured-content-patterns-for-e-commerce"
