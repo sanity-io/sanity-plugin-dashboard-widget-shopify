@@ -1,5 +1,11 @@
 # Sanity Dashboard Widgets for Shopify
 
+> 🚨 **This package is deprecated** 🚨
+>
+> As of September 2022, Sanity Connect no longer sends dashboard updates to your dataset on product and collection updates.
+>
+> Please note that your dataset will continue to receive dashboard updates if you've installed Sanity Connect prior to this date. This change only applies to new Sanity Connect installs.
+
 <img width="1450" alt="Shopify dashboard widgets" src="https://user-images.githubusercontent.com/209129/141157755-37f4c8aa-9b1a-489e-9264-a6cacfb9a0dd.png">
 
 ## About
